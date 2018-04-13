@@ -1,0 +1,29 @@
+package com.internousdev.template.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+
+import com.internousdev.template.dto.LoginDTO;
+import com.internousdev.template.util.DBConnector;
+import com.mysql.jdbc.PreparedStatement;
+
+public class LoginDAO {
+	private DBConnector dbConnector = new DBConnector();
+	private Connection connection = dbConnector.getConnection();
+	private LoginDTO loginDTO = new LoginDTO();
+
+	public class LoginDTO getLoginUserInfo(String loginUserId,String loginPassword){
+		String sql = "select * from login_user_transaction where login_id = ? ANDlogin_pass=?";
+
+		try{
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+			preparedStatement.setString(1,loginUserId);
+			preparedStatement.setString(1, loginPassword);
+
+			ResultSet resultSet = prepareStatement.executeQuery();
+		}
+	}
+
+
+}

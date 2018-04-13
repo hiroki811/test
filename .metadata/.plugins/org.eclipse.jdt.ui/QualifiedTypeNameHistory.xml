@@ -2,4 +2,7 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="com.internousdev.login.dao.LoginDAO"/>
 <fullyQualifiedTypeName name="com.internousdev.login.dto.LoginDTO"/>
+<fullyQualifiedTypeName name="com.internousdev.template.dto.LoginDTO"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 </qualifiedTypeNameHistroy>

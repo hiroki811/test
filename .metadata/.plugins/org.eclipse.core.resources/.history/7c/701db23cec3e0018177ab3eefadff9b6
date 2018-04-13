@@ -13,7 +13,7 @@ public class LoginDTO {
 	}
 
 	public void setLoginId(String loginId) {
-		this.loginId = loginId;
+
 	}
 
 	public String getLoginPassword() {
@@ -32,7 +32,7 @@ public class LoginDTO {
 		this.userName = userName;
 	}
 
-	public boolean getLoginFlg() {
+	public boolean isLoginFlg() {
 		return loginFlg;
 	}
 
