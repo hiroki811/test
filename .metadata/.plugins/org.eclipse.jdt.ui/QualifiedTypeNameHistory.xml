@@ -5,4 +5,5 @@
 <fullyQualifiedTypeName name="com.internousdev.template.dto.LoginDTO"/>
 <fullyQualifiedTypeName name="com.mysql.jdbc.PreparedStatement"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="com.sun.javafx.collections.MappingChange.Map"/>
 </qualifiedTypeNameHistroy>
