@@ -10,6 +10,5 @@
 	<!-- 対象のパッケージを設定 -->
 	<package name="com.internousdev.template.action" extends="struts-default">
 
-
 	</package>
 </struts>
