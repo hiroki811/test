@@ -27,7 +27,7 @@ public class UserCreateConfirmAction extends ActionSupport implements SessionAwa
 			         session.put("useerName",userName);
 
 		 }else{
-			 setErrorMassage("æœªå…¥åŠ›ã®é …ç›®ãŒã‚ã‚Šã¾ã™ã€‚");
+			 setErrorMassage("–¢“ü—Í‚Ì€–Ú‚ª‚ ‚è‚Ü‚·B");
 			 result = ERROR;
 		 }
 		 return result;

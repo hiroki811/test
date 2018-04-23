@@ -8,22 +8,57 @@ import com.opensymphony.xwork2.ActionSupport;
 
 
 public class MyPageAction extends ActionSupport implements SessionAware{
-	public Map<String,Object> Session;
+	public Map<String,Object> session;
 	public MyPageDAO myPageDAO = new MyPageDAO();
-	public MyPageDto myPageDTO = new MyPageDTO();
+	public MyPageDTO myPageDTO = new MyPageDTO();
 	public String deleteFlg;
 	private String result;
 	public String execute() throws SQLException{
-		
-		//å•†å“å±¥æ­´ã‚’æ¶ˆå»ã—ãªã„å ´åˆ
+
+		//¤•i—š—ğ‚ğíœ‚µ‚È‚¢ê‡
 		if(deleteFlg==null){
 			String item_transaction_id =session.get("id").toString();
 			String user_master_id =session.get("login_user_id").toString();
-			
-			myPageDTO = myPageDAO,getMyPageUserInfo(item_transaction_id,
-					user_master_id);
-					
-		}
-}
 
+			myPageDTO = myPageDAO.getMyPageUserInfo(item_transaction_id,
+					user_master_id);
+			session.put("buyItem_name",myPageDTO.getItemName());
+			session.put("total_price",myPageDTO.getTotalPrice());
+			session.put("total_countd",myPageDTO.getTotalCount());
+			session.put("total_payment",myPageDTO.getPayment());
+			session.put("message","");
+
+			//¤•i—š—ğ‚ğíœ‚·‚éê‡
+			}else if(deleteFlg.equals("1")){
+				delete();
+			}
+		result =SUCCESS;
+		return result;
+
+	}
+	public void delete() throws SQLException{
+		String item_transaction_id = session.get("id").toString();
+
+		int res = myPageDAO.buyItemHistoryDelete(item_transaction_id,user_master_id);
+
+		if(res > 0){
+			session.put("message","¤•iî•ñ‚ğ³‚µ‚­íœ‚µ‚Ü‚µ‚½B");
+
+		}else if(res == 0){
+			session.put("message","¤•iî•ñ‚Ìíœ‚É¸”s‚µ‚Ü‚µ‚½B");
+		}
+	}
+	public String getDeleteFlg(){
+		return deleteFlg;
+
+	}
+
+	public void setDeleteFlg(String deleteFlg){
+		this.deleteFlg = deleteFlg;
+	}
+
+	@Override
+	public void setSession(Map<String,Object>loginSessionMap){
+		this.session = loginSessionMap;
+	}
 }
